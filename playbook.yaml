@@ -1,0 +1,13 @@
+---
+- name: log grep
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  become: true
+  tasks:
+    - name: grep logs
+      log_grep:
+        path: /var/log
+        output: /tmp/output.log
+        keyword: "May 12 14:"
+        file_extension: .log
